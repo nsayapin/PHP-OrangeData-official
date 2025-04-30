@@ -1312,7 +1312,7 @@ class orangedata_client {
      *  @throws Exception
      */
     public function get_correction_status12($id) {
-        if (strlen($id) > 32 OR strlen($id) == 0) {
+        if (strlen($id) > 64 OR strlen($id) == 0) {
             throw new Exception('Invalid order identifier');
         }
         $curl = is_numeric($this->api_url) ? $this->prepare_curl($this->edit_url($this->api_url,false) . $this->inn . '/status/' . $id) : $this->prepare_curl($this->api_url . '/api/v2/correction12/' . $this->inn . '/status/' . $id);
